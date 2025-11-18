@@ -43,7 +43,7 @@ SELECT * FROM item WHERE item.FK_Id_tipo_item=tipo_item.PK_Id_tipo_item AND item
 END$$
 
 CREATE DEFINER=`root`@`localhost` PROCEDURE `ListarDialogosdeVendedor` (IN `Id_procurado` INT)   BEGIN
-SELECT * FROM dialogos WHERE vendedor.PK_Id_vendedor=Id_procurado AND vendedor.FK_Id_dialogos=dialogos.PK_Id_dialogos;
+SELECT * FROM dialogos, vendedor WHERE vendedor.PK_Id_vendedor=Id_procurado AND vendedor.FK_Id_dialogos=dialogos.PK_Id_dialogos;
 END$$
 
 CREATE DEFINER=`root`@`localhost` PROCEDURE `ListarInfoInimigos` ()   BEGIN
